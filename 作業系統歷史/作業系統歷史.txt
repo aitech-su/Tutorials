@@ -1,0 +1,26 @@
+
+作業系統（Operating System，OS）的發展歷史可以分為幾個主要階段，從早期的批處理系統到現代的多任務、多用戶系統。以下是對作業系統發展歷史的概述：
+
+1. 初期計算機時代 (1940s-1950s)
+無操作系統：最早的電子計算機如 ENIAC 並沒有操作系統，程序必須手動在機器上運行。
+批處理系統：用於自動執行一組作業。這些系統允許一次執行多個作業，減少人工干預。例如，IBM 的早期批處理系統。
+2. 早期操作系統 (1960s)
+CTSS（Compatible Time-Sharing System）：1961年，MIT 開發的早期分時操作系統，允許多個用戶同時使用一台計算機。
+Multics：由 MIT、GE 和 Bell Labs 開發，目的是創建一個高可靠性和安全性的多用戶系統。這是 Unix 的前身。
+3. Unix 時代 (1970s)
+Unix：1969年，Ken Thompson 和 Dennis Ritchie 在 Bell Labs 開發的 Unix，簡化了操作系統設計，並引入了許多重要概念，如檔案系統、管道和多任務處理。
+Unix 分支：隨著 Unix 的普及，出現了許多 Unix 的變種和分支，如 BSD（Berkeley Software Distribution）和 System V。
+4. 微型計算機時代 (1980s)
+MS-DOS：1981年，微軟為 IBM PC 開發的操作系統，單用戶、單任務。這是微軟後來開發 Windows 的基礎。
+Apple Macintosh System Software：1984年，Apple 推出了具有圖形用戶界面的操作系統，這是 Mac OS 的前身。
+Windows：1985年，微軟發布了具有圖形界面的 Windows 1.0，最初是一個在 MS-DOS 上運行的圖形殼。
+5. 開源運動和 Linux (1990s)
+Linux：1991年，Linus Torvalds 發布了 Linux 內核，並結合 GNU 工具，形成了完整的操作系統。這是一個開源、自由軟件運動的重要里程碑。
+Windows 95：1995年，微軟發布了 Windows 95，這是一個具有圖形用戶界面的完整操作系統，將 MS-DOS 和 Windows 團結在一起。
+6. 現代操作系統 (2000s至今)
+Windows XP, 7, 10：微軟持續改進其操作系統，Windows XP (2001)、Windows 7 (2009)、Windows 10 (2015) 都是重要的版本，特別是 Windows 10 引入了統一的操作系統平台。
+macOS：Apple 在 2001年發布了 Mac OS X（現在的 macOS），基於 Unix 的 NeXTSTEP 開發，具有穩定性和安全性。
+Linux 發行版：Ubuntu（2004年）、Fedora、Debian 等成為流行的 Linux 發行版，廣泛應用於桌面、服務器和嵌入式系統。
+移動操作系統：隨著智能手機的普及，iOS（2007年）和 Android（2008年）成為主流的移動操作系統。
+總結
+作業系統從無到有，經歷了批處理系統、分時系統、微型計算機時代、開源運動到現代的多任務、多用戶系統，每一步都伴隨著技術的進步和需求的變化。現在的作業系統不僅在桌面和服務器領域占據重要位置，還廣泛應用於移動設備、嵌入式系統和雲計算環境。
