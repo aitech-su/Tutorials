@@ -1,0 +1,8 @@
+go mod init my_grpc_project
+go get google.golang.org/protobuf@latest
+go get google.golang.org/grpc@latest
+建立proto檔案
+.
+.
+.
+protoc --go_out=. --go-grpc_out=. two-phase-commit.proto
