@@ -1,0 +1,63 @@
+STEP 1: GET KAFKA
+	$ tar -xzf kafka_2.13-3.7.0.tgz
+	$ cd kafka_2.13-3.7.0
+
+###########################################################################################
+需在路徑較短的目錄: 比如 C:\kafka_2.13-3.7.1
+###########################################################################################
+STEP 2: START THE KAFKA ENVIRONMENT
+[[[Kafka with ZooKeeper]]]
+
+# Start the ZooKeeper service
+$ .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+# Start the Kafka broker service
+$ .\bin\windows\kafka-server-start.bat .\config\server.properties
+
+[[[Kafka with KRaft]]] ----------------------->>>>>>>>>>>NOT TEST
+
+Generate a Cluster UUID
+$KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
+
+Format Log Directories
+$bin/kafka-storage.sh format -t $KAFKA_CLUSTER_ID -c config/kraft/server.properties
+
+Start the Kafka Server
+$ bin/kafka-server-start.sh config/kraft/server.properties
+
+[[[Using docker image]]]
+$ docker pull apache/kafka:3.7.1
+$ docker run -p 9092:9092 apache/kafka:3.7.1
+
+STEP 3: CREATE A TOPIC TO STORE YOUR EVENTS
+cd bin\windows
+.\kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic quickstart-events
+.\kafka-topics.bat --describe --topic quickstart-events --bootstrap-server localhost:9092
+cd ..
+cd ..
+.\bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092         
+
+STEP 4: WRITE SOME EVENTS INTO THE TOPIC
+cd bin\windows
+$ .\kafka-console-producer.bat --topic quickstart-events --bootstrap-server localhost:9092
+This is my first event
+This is my second event
+
+STEP 5: READ THE EVENTS
+cd bin\windows
+$ .\kafka-console-consumer.bat --topic quickstart-events --from-beginning --bootstrap-server localhost:9092
+This is my first event
+This is my second event
+
+STEP 6: IMPORT/EXPORT YOUR DATA AS STREAMS OF EVENTS WITH KAFKA CONNECT
+echo "plugin.path=libs/connect-file-3.7.0.jar" #to config/connect-standalone.properties
+> echo foo >> test.txt
+> echo bar >> test.txt
+> .\bin\windows\connect-standalone.bat config/connect-standalone.properties config/connect-file-source.properties config/connect-file-sink.properties
+
+During startup you'll see a number of log messages, including some indicating that the connectors are being instantiated. Once the Kafka Connect process has started, the source connector should start reading lines from test.txt and producing them to the topic connect-test, and the sink connector should start reading messages from the topic connect-test and write them to the file test.sink.txt. We can verify the data has been delivered through the entire pipeline by examining the contents of the output file
+
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic connect-test --from-beginning
+echo baz>> test.txt
+
+STEP 7: PROCESS YOUR EVENTS WITH KAFKA STREAMS
