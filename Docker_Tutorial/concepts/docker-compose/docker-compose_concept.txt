@@ -1,0 +1,1 @@
+docker-compose.yml中的containers都會在同一個net裡面

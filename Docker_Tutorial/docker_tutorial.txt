@@ -1,0 +1,76 @@
+Installing Docker on Ubuntu
+
+sudo apt-get update
+sudo apt-get install apt-transport-https
+sudo apt-get install docker.io
+
+
+docker pull <image>
+docker run -d -p <host port>: <container port> --name <container name> <image>: #-d : detach mode ,-p : port-binding ,--name : customized name
+docker images
+docker ps
+docker stop <Container id> #stops the container
+docker start <Container id> #starts stopped container
+docker ps -a  #lists running and stopped container　
+docker logs <Container id> 或 docker logs <Container names>
+docker exec -it　{<Container name> 或 <Container id>} {</bin/bash> 或 </bin/sh>} #-it : interactive terminal (進去之後)<NOTE> env : env variables ,exit : 回到terminal
+
+
+
+docker network ls #列出docker networks
+docker network create  <network name>
+docker run -p 27017:27017 -d -e MONGO_INITDB_ROOT_USERNAME=<username> -e MONGO_INITDB_ROOT_PASSWORD=<password> --name <container name> --net <network name> -v <host directory>:<container virtual directory> <image>
+
+
+
+docker-compose -f mongo.yaml up -d
+docker-compose -f mongo.yaml down
+
+docker build -t <image name> <path_to_Dockerfile> #build my own image
+	docker build -t my-app:1.0 .
+docker rmi <image id>
+
+####################################################################################
+Docker Registry : GitHub Container Registry
+
+#1.Push a image to GitHub Packages (GHCR)
+
+	Settings -> Developer Settings ->Tokens(classic) ->click write:packages ,delete:packages
+
+	echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
+	eg echo $CR_PAT | docker login ghcr.io -u aitech-su --password-stdin
+
+	docker tag <image> <ghcr.io/username/image-name>
+		eg. docker tag kaf-chat ghcr.io/aitech-su/kaf-chat
+	docker push <ghcr.io/username/image-name>
+		eg. docker push ghcr.io/aitech-su/kaf-chat
+
+#2 Use a GitHub Actions to Publish a Docker image to GitHub Packages (GHCR)
+
+	.github\workflows {docker-publish.yml}
+	Packages -> click a package -> Package settings -> Add Repository
+	正常push
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+named volume最常用
+
+本機上的掛載路徑:
+Windows: C:\ProgramData\docker\volumes
+MacOS:/var/lib/docker/volumes
+Linux:/var/lib/docker/volumes

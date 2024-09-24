@@ -1,0 +1,17 @@
+Docker Hub：這是最廣泛使用的公共Docker registry，提供數以千計的官方和社區維護的容器映像。用戶可以免費上傳和下載映像，也可以選擇付費計劃獲得更多的存儲和私有庫功能。
+
+Google Container Registry (GCR)：由Google Cloud Platform提供的Docker registry，與GCP服務深度集成，特別適合使用Google Cloud環境的用戶。
+
+Amazon Elastic Container Registry (ECR)：由Amazon Web Services提供的Docker registry，與AWS服務無縫集成，支持IAM進行訪問控制，適合使用AWS生態系統的用戶。
+
+Azure Container Registry (ACR)：由Microsoft Azure提供的Docker registry，與Azure服務深度集成，適合使用Azure雲環境的用戶。
+
+Harbor：由VMware開發的開源企業級Docker registry，提供用於容器映像管理的高級功能，如基於角色的訪問控制、鏡像簽名、漏洞掃描等。
+
+Quay.io：由Red Hat提供的Docker registry，專注於安全和易用性，提供高級的訪問控制和自動鏡像掃描功能。
+
+GitHub Container Registry：由GitHub提供，允許開發者直接將容器映像與他們的GitHub項目相關聯，並利用GitHub的CI/CD功能進行自動部署。
+
+Artifactory：由JFrog提供的通用二進制倉庫管理器，不僅支持Docker映像，還支持其他類型的包管理，適合於需要管理多種包格式的企業。
+
+DigitalOcean也提供Docker registry服務，稱為DigitalOcean Container Registry。這個服務允許用戶存儲和管理Docker映像，並且與DigitalOcean的其他服務（如Droplets和Kubernetes）緊密集成。它提供了私有和公共存儲庫選項，方便開發者和團隊管理和部署容器化應用。

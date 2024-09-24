@@ -1,0 +1,5 @@
+FROM <base image>
+ENV <環境變數...>
+COPY . /home/app #把本機當前資料夾的所有檔案複製到container中的/home/app
+RUN <any Linux cmd>
+CMD ["node", "server.js"]  #entry point
